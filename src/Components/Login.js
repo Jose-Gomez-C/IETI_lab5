@@ -44,7 +44,7 @@ export class Login extends React.Component{
         var listUsers = JSON.parse(localStorage.getItem("users"));
         var logged = false;
         for (var i = 0; i < listUsers.length; i++){
-            if (listUsers[i].email == this.state.email && listUsers[i].password == this.state.password ){
+            if (listUsers[i].email === this.state.email && listUsers[i].password === this.state.password ){
                 localStorage.setItem("IsLoggedIn",true);
                 localStorage.setItem("username",listUsers[i].username);
                 localStorage.setItem("email",listUsers[i].email);

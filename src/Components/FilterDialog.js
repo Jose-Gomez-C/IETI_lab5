@@ -42,7 +42,7 @@ export default function FilterDialog(props) {
                     
                     <Select
                       autoFocus
-                      value = {props.state.itemsFiltered[0].status}
+                      value = {props.state.statusFiltered}
                       onChange = {props.handleStatusChange}
                       inputProps={{
                         name: 'Status',
@@ -65,7 +65,7 @@ export default function FilterDialog(props) {
                             margin="normal"
                             id="due-date"
                             label="Todo Date"
-                            value={props.state.itemsFiltered[0].dueDate}
+                            value={props.state.dueDateFiltered}
                             onChange={props.handleDateChange}
                             KeyboardButtonProps={{
                                 'aria-label': 'change date',
@@ -81,7 +81,7 @@ export default function FilterDialog(props) {
                     <TextField
                         id="responsible"
                         onChange={props.handleRespChange}
-                        value={props.state.itemsFiltered[0].responsible}>
+                        value={props.state.responsibleFiltered}>
                     </TextField>
   
                     <br/>

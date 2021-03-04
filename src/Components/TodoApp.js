@@ -17,8 +17,8 @@ export class TodoApp extends Component {
     constructor(props) {
         super(props);
         this.state = {items: [{text:"Task",status:"Ready",dueDate:moment(),responsible:'jose'}], 
-                            text: '', status: '', dueDate: moment(), responsible:'',isOpen:false,isOpenFilter:false,filtering:false};
-        this.state.itemsFiltered = [{status:"",dueDate: moment(),responsible:""}];
+                            text: '', status: '', dueDate: moment(), responsible:'',isOpen:false,isOpenFilter:false,filtering:false,
+                            statusFiltered:"", dueDateFiltered: moment(), responsibleFiltered:""};
         this.state.itemsShow = [];
 
     }
@@ -67,39 +67,37 @@ export class TodoApp extends Component {
 
     handleStatusChangeF = (e) => {
 
-        this.state.itemsFiltered[0].status = e.target.value;
         this.setState(
-            this.state
+            {statusFiltered : e.target.value}
+    
         );
     }
 
    handleDateChangeF = (e) => {
 
-        console.log("Fecha");
-        this.state.itemsFiltered[0].dueDate = e;
         this.setState(
-            this.state
+            {dueDateFiltered : e}
     );
 
     }
 
     handleRespChangeF = (e) =>{
 
-        this.state.itemsFiltered[0].responsible = e.target.value;
         this.setState(
-            this.state
+            {responsibleFiltered : e.target.value}
         );
        
     }
 
     handleSubmitFilter = () =>{
-        this.state.itemsShow = [];
+        this.setState(
+            {itemsShow : []}
+        )
     
         var itemsI = this.state.items;
-        var itemsF = this.state.itemsFiltered;
-        console.log(this.state.itemsFiltered[0].dueDate.toString());
+        var {statusFiltered, dueDateFiltered, responsibleFiltered} = this.state;
         for (var i = 0 ; i < itemsI.length; i++){
-            if (itemsI[i].status === itemsF[0].status ||  itemsI[i].dueDate === itemsF[0].dueDate.toString() || itemsI[i].responsible === itemsF[0].responsible){
+            if (itemsI[i].status === statusFiltered ||  itemsI[i].dueDate === dueDateFiltered.toString() || itemsI[i].responsible === responsibleFiltered){
                 this.state.itemsShow.push(itemsI[i]);
             }
         }
