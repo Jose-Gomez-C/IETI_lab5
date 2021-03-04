@@ -3,6 +3,8 @@ jose@gmail.com
 Hola123
 # link heroku
 [aqui](https://ieti-lab.herokuapp.com)
+# Link Firebase
+[aqui](https://taks-planner-app-ff9a2.web.app)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
